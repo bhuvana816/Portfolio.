@@ -9,59 +9,22 @@ interface ProjectCardProps {
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
-  const cardVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        delay: index * 0.2,
-        ease: 'easeOut',
-      },
-    },
-    hover: {
-      y: -6,
-      boxShadow:
-        '0 12px 20px -5px rgba(0, 0, 0, 0.1), 0 6px 6px -5px rgba(0, 0, 0, 0.05)',
-      transition: {
-        duration: 0.3,
-        ease: 'easeOut',
-      },
-    },
-  };
-
-  const imageVariants = {
-    hover: {
-      scale: 1.05,
-      transition: { duration: 0.3 },
-    },
-  };
-
-  const buttonVariants = {
-    hover: {
-      scale: 1.05,
-      transition: { duration: 0.2 },
-    },
-  };
-
   return (
     <motion.div
-      className="w-full max-w-sm bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow flex flex-col"
-      variants={cardVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.1 }}
-      whileHover="hover"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      className="w-full max-w-sm bg-white dark:bg-[#1f1f1f] rounded-xl shadow-lg hover:shadow-2xl transition-shadow overflow-hidden flex flex-col"
     >
-      <div className="relative overflow-hidden h-40">
+      <div className="h-40 w-full overflow-hidden">
         <motion.img
           src={project.image}
           alt={project.title}
-          className="w-full h-full object-cover"
-          variants={imageVariants}
+          className="h-full w-full object-cover"
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.3 }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
       </div>
 
       <div className="p-4 flex flex-col flex-1">
@@ -77,7 +40,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           {project.tags.map((tag, i) => (
             <span
               key={i}
-              className="px-2 py-0.5 text-xs rounded-full bg-indigo-100 text-indigo-800 dark:bg-indigo-900/30 dark:text-indigo-300"
+              className="px-2 py-0.5 text-xs rounded-full bg-gray-100 text-gray-700 dark:bg-white/10 dark:text-gray-300"
             >
               {tag}
             </span>
@@ -89,21 +52,18 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
             href={project.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-1 py-1.5 px-3 rounded-md bg-gray-100 dark:bg-gray-700 text-sm text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600 w-full"
-            variants={buttonVariants}
-            whileHover="hover"
+            className="flex-1 flex items-center justify-center gap-1 py-2 px-3 text-sm rounded-md border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-white/10 transition"
+            whileHover={{ scale: 1.03 }}
           >
             <Github size={16} />
             Code
           </motion.a>
-
           <motion.a
             href={project.live}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-1 py-1.5 px-3 rounded-md bg-indigo-500 text-white text-sm hover:bg-indigo-600 dark:bg-indigo-400 dark:hover:bg-indigo-500 w-full"
-            variants={buttonVariants}
-            whileHover="hover"
+            className="flex-1 flex items-center justify-center gap-1 py-2 px-3 text-sm rounded-md bg-indigo-500 text-white hover:bg-indigo-600 dark:bg-indigo-400 dark:hover:bg-indigo-500 transition"
+            whileHover={{ scale: 1.03 }}
           >
             <ExternalLink size={16} />
             Demo
