@@ -15,12 +15,6 @@ const socialLinks: SocialLink[] = [
     icon: Linkedin
   },
   {
-    id: "twitter",
-    name: "Twitter",
-    url: "https://twitter.com/yourusername",
-    icon: Twitter
-  },
-  {
     id: "email",
     name: "Email",
     url: "mailto:bhuvanass2005@gmail.com",
