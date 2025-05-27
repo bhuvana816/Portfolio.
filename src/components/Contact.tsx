@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import AnimatedSection from './AnimatedSection';
-import { submitContactForm } from '../utils/firebase';
+import emailjs from '@emailjs/browser';
 import { FormStatus, ContactFormData } from '../types';
 import { SendIcon, CheckCircle, AlertCircle } from 'lucide-react';
 
@@ -56,13 +56,18 @@ const Contact: React.FC = () => {
     });
 
     try {
-      const result = await submitContactForm(
-        formData.name,
-        formData.email,
-        formData.message
+      const result = await emailjs.send(
+        'service_pkz1te8',       // SERVICE ID
+        'template_11jofo3',      // TEMPLATE ID
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+        },
+        'X9IrH0P1ErNmT5Ccw'      // PUBLIC KEY
       );
 
-      if (result.success) {
+      if (result.status === 200) {
         setFormStatus({
           isSubmitting: false,
           isSuccess: true,
@@ -71,7 +76,7 @@ const Contact: React.FC = () => {
         });
         setFormData({ name: '', email: '', message: '' });
       } else {
-        throw new Error('Submission failed');
+        throw new Error('Failed to send email');
       }
     } catch {
       setFormStatus({
@@ -83,10 +88,10 @@ const Contact: React.FC = () => {
     }
   };
 
-  const inputClasses = `w-full px-4 py-3 border border-gray-300 dark:border-gray-700 
-    rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 
-    dark:focus:ring-indigo-400 bg-white dark:bg-gray-800 text-gray-900 
-    dark:text-white transition-all duration-200`;
+  const inputClasses = `w-full px-4 py-3 border border-gray-300 dark:border-gray-700
+     rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500
+     dark:focus:ring-indigo-400 bg-white dark:bg-gray-800 text-gray-900
+     dark:text-white transition-all duration-200`;
 
   return (
     <section
@@ -94,7 +99,6 @@ const Contact: React.FC = () => {
       className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-[#0e0e0e]"
     >
       <div className="max-w-5xl mx-auto">
-        {/* Heading */}
         <AnimatedSection className="text-center mb-14" direction="up">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 text-transparent bg-clip-text">
             Let's Work Together
@@ -104,14 +108,12 @@ const Contact: React.FC = () => {
           </p>
         </AnimatedSection>
 
-        {/* Form Card */}
         <AnimatedSection
           className="bg-gray-50 dark:bg-gray-900 rounded-2xl shadow-xl overflow-hidden"
           direction="up"
           delay={0.2}
         >
           <div className="grid md:grid-cols-2">
-            {/* Left Info Section */}
             <div className="bg-gradient-to-br from-indigo-600 to-purple-600 p-8 md:p-12 text-white space-y-6">
               <h3 className="text-2xl font-semibold">Contact Info</h3>
               <p className="opacity-90">Reach out and I’ll respond ASAP.</p>
@@ -121,7 +123,6 @@ const Contact: React.FC = () => {
               </div>
             </div>
 
-            {/* Form Section */}
             <div className="p-8 md:p-12 bg-white dark:bg-gray-900">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
@@ -172,7 +173,6 @@ const Contact: React.FC = () => {
                   />
                 </div>
 
-                {/* Status Messages */}
                 {formStatus.isError && (
                   <div className="flex items-center gap-2 text-red-600 dark:text-red-400">
                     <AlertCircle size={18} />
@@ -191,7 +191,6 @@ const Contact: React.FC = () => {
                   </motion.div>
                 )}
 
-                {/* Submit Button */}
                 <motion.button
                   type="submit"
                   className="w-full py-3 px-6 bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600 text-white font-semibold rounded-xl shadow-md transition-all duration-200 flex items-center justify-center gap-2"
