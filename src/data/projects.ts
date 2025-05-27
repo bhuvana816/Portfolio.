@@ -33,8 +33,8 @@ const projects: Project[] = [
     title: "Portfolio Website",
     description: "A personal portfolio website showcasing projects and skills. Built with React, Tailwind CSS, and Framer Motion for animations.",
     image: "https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    github: "https://github.com/username/portfolio",
-    live: "https://portfolio-website.vercel.app",
+    github: "https://github.com/bhuvana816/Portfolio.",
+    live: "https://portfolio-navy-five-88.vercel.app/#home",
     tags: ["React", "Tailwind CSS", "Framer Motion"]
   }
 ];
