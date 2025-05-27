@@ -144,7 +144,7 @@ const Contact: React.FC = () => {
                     value={formData.name}
                     onChange={handleChange}
                     className={inputClasses}
-                    placeholder="John Doe"
+                    placeholder="Enter your name"
                     disabled={formStatus.isSubmitting || formStatus.isSuccess}
                   />
                 </div>
@@ -160,7 +160,7 @@ const Contact: React.FC = () => {
                     value={formData.email}
                     onChange={handleChange}
                     className={inputClasses}
-                    placeholder="john@example.com"
+                    placeholder="abc@example.com"
                     disabled={formStatus.isSubmitting || formStatus.isSuccess}
                   />
                 </div>
@@ -176,7 +176,7 @@ const Contact: React.FC = () => {
                     onChange={handleChange}
                     rows={5}
                     className={inputClasses}
-                    placeholder="Hello, I'd like to talk about..."
+                    placeholder=""
                     disabled={formStatus.isSubmitting || formStatus.isSuccess}
                   />
                 </div>
