@@ -125,11 +125,7 @@ const Contact: React.FC = () => {
               <div className="space-y-6">
                 <div>
                   <h4 className="text-lg font-semibold mb-2">Email</h4>
-                  <p>your.email@example.com</p>
-                </div>
-                <div>
-                  <h4 className="text-lg font-semibold mb-2">Location</h4>
-                  <p>San Francisco, California</p>
+                  <p>bhuvanass2005@gmail.com</p>
                 </div>
               </div>
             </div>
