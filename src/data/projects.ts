@@ -8,7 +8,7 @@ const projects: Project[] = [
     description: "A productivity app for managing tasks and projects. Built with React and Firebase, featuring real-time updates, drag-and-drop functionality, and team collaboration.",
     image: "https://images.pexels.com/photos/6408282/pexels-photo-6408282.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     github: "https://github.com/bhuvana816/taskmanager",
-    live: https://taskmanager-eight-xi.vercel.app/",
+    live: "https://taskmanager-eight-xi.vercel.app/",
     tags: ["React", "Firebase", "Tailwind CSS"]
   },
  
