@@ -41,7 +41,7 @@ const Navbar: React.FC = () => {
             href="#home"
             className="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent"
           >
-            bhuvana.dev
+            Bhuvana.dev
           </a>
 
           {/* Desktop Nav */}
