@@ -1,8 +1,10 @@
+// src/components/Hero.tsx
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import AnimatedSection from './AnimatedSection';
 import { TypeAnimation } from 'react-type-animation';
+import ParticleBackground from './ParticleBackground'; // ✅ Add this line
 
 const Hero: React.FC = () => {
   return (
@@ -11,9 +13,13 @@ const Hero: React.FC = () => {
       className="min-h-screen flex flex-col justify-center pt-16 relative overflow-hidden
                  bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900 text-white"
     >
-      {/* Background pattern if you have one */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-[0.03]"></div>
+      {/* Particle Background */}
+      <ParticleBackground />
 
+      {/* Optional background pattern (kept as-is) */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-[0.03] z-0"></div>
+
+      {/* Content */}
       <div className="container mx-auto px-4 md:px-8 relative z-10">
         <div className="flex flex-col items-center text-center">
           <AnimatedSection>
@@ -25,7 +31,7 @@ const Hero: React.FC = () => {
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-pink-400">
                 Hello, I'm
               </span>
-              <div className="mt-1">Amajala Bhuvana Sree Sahithi</div>
+              <div className="mt-1 glow">Amajala Bhuvana Sree Sahithi</div>
             </motion.h1>
           </AnimatedSection>
 
