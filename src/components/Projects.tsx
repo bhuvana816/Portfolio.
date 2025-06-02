@@ -9,19 +9,13 @@ const headingVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: {
-      duration: 0.6,
-      ease: 'easeOut',
-    },
+    transition: { duration: 0.6, ease: 'easeOut' },
   },
 };
 
 const Projects: React.FC = () => {
   return (
-    <section
-      id="projects"
-      className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-[#0e0e0e]"
-    >
+    <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-[#0e0e0e]">
       <div className="max-w-7xl mx-auto">
         {/* Heading */}
         <AnimatedSection className="text-center mb-16" direction="up">
@@ -40,10 +34,14 @@ const Projects: React.FC = () => {
           </p>
         </AnimatedSection>
 
-        {/* Project Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Projects List */}
+        <div>
           {projects.map((project, index) => (
-            <ProjectCard key={project.id} project={project} index={index} />
+            <ProjectCard
+              key={project.id}
+              project={project}
+              reverse={index % 2 !== 0} // alternate layout
+            />
           ))}
         </div>
       </div>
