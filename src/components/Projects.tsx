@@ -1,3 +1,4 @@
+// src/components/Projects.tsx
 import React from 'react';
 import { motion } from 'framer-motion';
 import AnimatedSection from './AnimatedSection';
@@ -15,12 +16,12 @@ const headingVariants = {
 
 const Projects: React.FC = () => {
   return (
-    <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-[#0e0e0e]">
-      <div className="max-w-7xl mx-auto">
+    <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-slate-950">
+      <div className="max-w-6xl mx-auto">
         {/* Heading */}
         <AnimatedSection className="text-center mb-16" direction="up">
           <motion.h2
-            className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 text-transparent bg-clip-text"
+            className="text-3xl md:text-4xl font-extrabold mb-4 bg-gradient-to-r from-indigo-500 to-purple-500 text-transparent bg-clip-text"
             variants={headingVariants}
             initial="hidden"
             whileInView="visible"
@@ -34,13 +35,13 @@ const Projects: React.FC = () => {
           </p>
         </AnimatedSection>
 
-        {/* Projects List */}
-        <div>
+        {/* Projects */}
+        <div className="space-y-20">
           {projects.map((project, index) => (
             <ProjectCard
               key={project.id}
               project={project}
-              reverse={index % 2 !== 0} // alternate layout
+              reverse={index % 2 !== 0}
             />
           ))}
         </div>
