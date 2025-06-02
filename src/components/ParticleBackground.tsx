@@ -1,61 +1,66 @@
-// components/ParticleBackground.tsx
-import { Engine } from 'tsparticles-engine';
+// src/components/ParticleBackground.tsx
+import { useCallback } from 'react';
 import Particles from 'react-tsparticles';
 import { loadFull } from 'tsparticles';
 
-const ParticleBackground = () => {
-  const particlesInit = async (main: Engine) => {
-    await loadFull(main);
-  };
+export default function ParticleBackground() {
+  const particlesInit = useCallback(async (engine: any) => {
+    await loadFull(engine);
+  }, []);
 
   return (
     <Particles
       id="tsparticles"
       init={particlesInit}
+      className="absolute inset-0 -z-10"
       options={{
-        fullScreen: { enable: false },
-        background: { color: { value: '#0f172a' } }, // fallback color
+        background: {
+          color: '#000000',
+        },
+        fullScreen: {
+          enable: false, // So it doesn't take over entire app unless you want it
+        },
         particles: {
-          number: { value: 50 },
-          color: { value: '#ffffff' },
-          shape: { type: 'circle' },
+          number: {
+            value: 160,
+            density: {
+              enable: true,
+              area: 800,
+            },
+          },
+          color: {
+            value: '#ffffff',
+          },
+          shape: {
+            type: 'circle',
+          },
           opacity: {
             value: 0.5,
             random: true,
           },
           size: {
-            value: 3,
+            value: 1.5,
             random: true,
           },
           move: {
-            enable: true,
-            speed: 1.5,
             direction: 'none',
-            outMode: 'bounce',
-          },
-          links: {
-            enable: true,
-            distance: 150,
-            color: '#ffffff',
-            opacity: 0.2,
-            width: 1,
+            speed: 0.2,
+            outModes: {
+              default: 'out',
+            },
           },
         },
         interactivity: {
           events: {
-            onHover: { enable: true, mode: 'repulse' },
-            onClick: { enable: true, mode: 'push' },
-          },
-          modes: {
-            repulse: { distance: 100, duration: 0.4 },
-            push: { quantity: 4 },
+            onHover: {
+              enable: true,
+              mode: 'repulse',
+            },
+            resize: true,
           },
         },
         detectRetina: true,
       }}
-      className="absolute inset-0 z-0"
     />
   );
-};
-
-export default ParticleBackground;
+}
