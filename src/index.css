@@ -7,12 +7,4 @@ body {
   @apply bg-black text-white;
 }
 
-/* Glowing text effect */
-.glow {
-  color: #fff;
-  text-shadow:
-    0 0 5px #fff,
-    0 0 10px #0ff,
-    0 0 20px #0ff,
-    0 0 40px #0ff;
-}
+
