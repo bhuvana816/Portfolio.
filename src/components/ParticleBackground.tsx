@@ -15,11 +15,12 @@ export default function ParticleBackground() {
       className="absolute inset-0 -z-10"
       options={{
         background: {
-          color: '#000000',
+          color: 'transparent',
         },
         fullScreen: {
-          enable: false, // So it doesn't take over entire app unless you want it
+          enable: false,
         },
+        fpsLimit: 60,
         particles: {
           number: {
             value: 160,
