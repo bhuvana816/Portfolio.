@@ -58,6 +58,7 @@ const Hero: React.FC = () => {
               className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-md hover:shadow-xl transition-all"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              aria-label="View my projects"
             >
               View My Work
             </motion.a>
@@ -66,6 +67,7 @@ const Hero: React.FC = () => {
               className="px-6 py-3 border border-blue-400 text-blue-300 font-semibold rounded-lg hover:bg-blue-800/30 transition-all"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              aria-label="Contact me"
             >
               Contact Me
             </motion.a>
