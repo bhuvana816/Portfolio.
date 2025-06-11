@@ -1,7 +1,7 @@
 import { Project } from '../types';
+import nykaaImage from './nykaa.png'; // Import the image directly
 
 const projects: Project[] = [
- 
   {
     id: "1",
     title: "Task Management App",
@@ -11,7 +11,6 @@ const projects: Project[] = [
     live: "https://taskmanager-eight-xi.vercel.app/",
     tags: ["React", "Firebase", "Tailwind CSS"]
   },
- 
   {
     id: "2",
     title: "Portfolio Website",
@@ -21,16 +20,15 @@ const projects: Project[] = [
     live: "https://portfolio-navy-five-88.vercel.app/#home",
     tags: ["React", "Tailwind CSS", "Framer Motion"]
   },
- {
-  id: "3",
-  title: "Nykaa Clone",
-  description: "A Nykaa clone is a ready-made e-commerce platform that replicates Nykaa’s features, enabling users to shop for beauty, skincare, and wellness products. It includes user-friendly navigation, secure checkout, product reviews, and admin control, making it ideal for launching a beauty marketplace quickly and efficiently.",
-  image: "./data/nykaa",
-  github: "https://github.com/bhuvana816/nykaa",
-  live: "https://portfolio2-f57f.vercel.app/",
-  tags: ["HTML", "Tailwind CSS", "Framer Motion"]
-}
-
+  {
+    id: "3",
+    title: "Nykaa Clone",
+    description: "A Nykaa clone is an e-commerce platform replicating Nykaa’s core features for beauty, skincare, and wellness products. It offers smooth navigation, secure checkout, and admin control for easy marketplace deployment.",
+    image: nykaaImage,
+    github: "https://github.com/bhuvana816/nykaa",
+    live: "https://portfolio2-f57f.vercel.app/",
+    tags: ["HTML", "Tailwind CSS", "Framer Motion"]
+  }
 ];
 
 export default projects;
