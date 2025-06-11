@@ -25,7 +25,7 @@ const projects: Project[] = [
     id: "3",
     title: "Nykaa Clone",
     description: "The Nykaa Clone is a fully functional e-commerce web application designed to offer a seamless shopping experience for beauty, skincare, and wellness products. It includes essential features such as user authentication, product browsing with filters, cart and wishlist management, and secure checkout. An integrated admin dashboard allows for easy management of products, categories, and orders. The platform is responsive across devices, ensuring a smooth user experience on both desktop and mobile.",
-    image: "https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    image: "https://images.pexels.com/photos/1661476/pexels-photo-1661476.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     github: "https://github.com/bhuvana816/nykaa",
     live: "https://portfolio2-f57f.vercel.app/",
     tags: ["HTML", "Tailwind CSS", "Framer Motion"]
