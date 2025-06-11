@@ -24,8 +24,8 @@ const projects: Project[] = [
  {
   id: "3",
   title: "Nykaa Clone",
-  description: "The Nykaa Clone …",
-  image: "https://images.pexels.com/photos/1661476/pexels-photo-1661476.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+  description: "A Nykaa clone is a ready-made e-commerce platform that replicates Nykaa’s features, enabling users to shop for beauty, skincare, and wellness products. It includes user-friendly navigation, secure checkout, product reviews, and admin control, making it ideal for launching a beauty marketplace quickly and efficiently.",
+  image: "./data/nykaa",
   github: "https://github.com/bhuvana816/nykaa",
   live: "https://portfolio2-f57f.vercel.app/",
   tags: ["HTML", "Tailwind CSS", "Framer Motion"]
