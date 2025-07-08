@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import AnimatedSection from './AnimatedSection';
 import emailjs from '@emailjs/browser';
-import { FormStatus, ContactFormData } from '../types';
 import { SendIcon, CheckCircle, AlertCircle } from 'lucide-react';
+import AnimatedSection from './AnimatedSection';
+import { ContactFormData, FormStatus } from '../types';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState<ContactFormData>({
@@ -26,34 +26,36 @@ const Contact: React.FC = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  const validateForm = () => {
+    if (!formData.name || !formData.email || !formData.message) {
+      setFormStatus({
+        isSubmitting: false,
+        isSuccess: false,
+        isError: true,
+        message: 'All fields are required.',
+      });
+      return false;
+    }
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(formData.email)) {
+      setFormStatus({
+        isSubmitting: false,
+        isSuccess: false,
+        isError: true,
+        message: 'Please enter a valid email address.',
+      });
+      return false;
+    }
+
+    return true;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!validateForm()) return;
 
-    if (!formData.name || !formData.email || !formData.message) {
-      return setFormStatus({
-        isSubmitting: false,
-        isSuccess: false,
-        isError: true,
-        message: 'Please fill out all fields',
-      });
-    }
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(formData.email)) {
-      return setFormStatus({
-        isSubmitting: false,
-        isSuccess: false,
-        isError: true,
-        message: 'Please enter a valid email address',
-      });
-    }
-
-    setFormStatus({
-      isSubmitting: true,
-      isSuccess: false,
-      isError: false,
-      message: '',
-    });
+    setFormStatus({ isSubmitting: true, isSuccess: false, isError: false, message: '' });
 
     try {
       const result = await emailjs.send(
@@ -72,26 +74,28 @@ const Contact: React.FC = () => {
           isSubmitting: false,
           isSuccess: true,
           isError: false,
-          message: 'Message sent successfully!',
+          message: 'Your message has been sent successfully!',
         });
         setFormData({ name: '', email: '', message: '' });
       } else {
-        throw new Error('Failed to send email');
+        throw new Error('Unexpected response from server.');
       }
     } catch {
       setFormStatus({
         isSubmitting: false,
         isSuccess: false,
         isError: true,
-        message: 'Failed to send message. Please try again later.',
+        message: 'Failed to send your message. Please try again later.',
       });
     }
   };
 
-  const inputClasses = `w-full px-4 py-3 border border-gray-300 dark:border-gray-700
-     rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500
-     dark:focus:ring-indigo-400 bg-white dark:bg-gray-800 text-gray-900
-     dark:text-white transition-all duration-200`;
+  const inputBaseClass =
+    `w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 
+     bg-white dark:bg-gray-800 text-gray-900 dark:text-white 
+     border-gray-300 dark:border-gray-700 
+     focus:ring-indigo-500 dark:focus:ring-indigo-400 
+     transition-all duration-200`;
 
   return (
     <section
@@ -104,7 +108,7 @@ const Contact: React.FC = () => {
             Get in Touch
           </h2>
           <p className="text-gray-600 dark:text-gray-300 max-w-xl mx-auto text-sm sm:text-base">
-            Have a question or want to work together? Fill out the form below and I’ll be in touch shortly.
+            Have questions or want to collaborate? Fill out the form below — I’ll get back to you shortly.
           </p>
         </AnimatedSection>
 
@@ -124,7 +128,7 @@ const Contact: React.FC = () => {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                className={inputClasses}
+                className={inputBaseClass}
                 placeholder="Your name"
                 disabled={formStatus.isSubmitting || formStatus.isSuccess}
               />
@@ -140,7 +144,7 @@ const Contact: React.FC = () => {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                className={inputClasses}
+                className={inputBaseClass}
                 placeholder="you@example.com"
                 disabled={formStatus.isSubmitting || formStatus.isSuccess}
               />
@@ -156,8 +160,8 @@ const Contact: React.FC = () => {
                 value={formData.message}
                 onChange={handleChange}
                 rows={5}
-                className={inputClasses}
-                placeholder="What's on your mind?"
+                className={inputBaseClass}
+                placeholder="What would you like to discuss?"
                 disabled={formStatus.isSubmitting || formStatus.isSuccess}
               />
             </div>
@@ -182,10 +186,13 @@ const Contact: React.FC = () => {
 
             <motion.button
               type="submit"
-              className="w-full py-3 px-6 bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600 text-white font-semibold rounded-xl shadow-md transition-all duration-200 flex items-center justify-center gap-2"
+              className={`w-full py-3 px-6 bg-indigo-600 hover:bg-indigo-700 
+                dark:bg-indigo-500 dark:hover:bg-indigo-600 text-white font-semibold 
+                rounded-xl shadow-md transition-all duration-200 flex items-center justify-center gap-2 
+                ${formStatus.isSubmitting || formStatus.isSuccess ? 'opacity-70 cursor-not-allowed' : ''}`}
               disabled={formStatus.isSubmitting || formStatus.isSuccess}
-              whileHover={!formStatus.isSubmitting && !formStatus.isSuccess ? { scale: 1.02 } : {}}
-              whileTap={!formStatus.isSubmitting && !formStatus.isSuccess ? { scale: 0.98 } : {}}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
             >
               {formStatus.isSubmitting ? (
                 <>
