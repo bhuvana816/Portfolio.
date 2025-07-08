@@ -10,71 +10,57 @@ const Hero: React.FC = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex flex-col justify-center items-center bg-slate-900 text-white overflow-hidden"
+      className="relative min-h-screen flex flex-col justify-center items-center bg-slate-900 text-white overflow-hidden font-sans"
     >
       <ParticleBackground />
 
-      <div className="container mx-auto px-4 md:px-8 relative z-10 text-center">
-        <AnimatedSection>
-          <motion.h1
-            className="text-4xl md:text-6xl font-extrabold mb-4 leading-tight"
-            whileHover={{ scale: 1.02 }}
-            transition={{ type: 'spring', stiffness: 400 }}
-          >
-            <span className="block text-slate-300">Hello, I'm</span>
-            <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent drop-shadow-md">
-              Amajala Bhuvana Sree Sahithi
-            </span>
-          </motion.h1>
-        </AnimatedSection>
+      <div className="container mx-auto px-4 md:px-8 relative z-10 text-center flex flex-col items-center justify-center gap-10">
+        {/* Content */}
+        <div className="max-w-xl text-left">
+          <AnimatedSection>
+            <motion.h1
+              className="text-4xl md:text-5xl font-bold mb-4 leading-tight"
+              whileHover={{ scale: 1.02 }}
+              transition={{ type: 'spring', stiffness: 400 }}
+            >
+              Hi, I'm{' '}
+              <span className="text-transparent bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text">
+                Amajala Bhuvana Sree Sahithi
+              </span>
+            </motion.h1>
+          </AnimatedSection>
 
-        <AnimatedSection delay={0.2}>
-          <TypeAnimation
-            sequence={[
-              'Full Stack Developer',
-              2000,
-              'Web Designer',
-              2000,
-              'React & Django Enthusiast',
-              2000,
-            ]}
-            wrapper="h2"
-            speed={50}
-            repeat={Infinity}
-            className="text-lg md:text-xl font-medium text-slate-400 mb-6"
-          />
-        </AnimatedSection>
+          <AnimatedSection delay={0.2}>
+            <TypeAnimation
+              sequence={['Frontend Developer', 2000, 'React Enthusiast', 2000, 'UI/UX Explorer', 2000]}
+              wrapper="h2"
+              speed={50}
+              repeat={Infinity}
+              className="text-xl font-medium text-purple-300 mb-4"
+            />
+          </AnimatedSection>
 
-        <AnimatedSection delay={0.3}>
-          <p className="text-slate-300 mb-8 leading-relaxed text-base md:text-lg max-w-2xl mx-auto">
-            I craft beautiful, functional web applications with a focus on user experience and performance. Passionate about creating intuitive interfaces and solving complex problems with clean, efficient code.
-          </p>
-        </AnimatedSection>
+          <AnimatedSection delay={0.3}>
+            <p className="text-gray-300 mb-6 leading-relaxed text-base">
+              I'm a B.Tech student in Computer Science and Engineering at Vignan's Institute of Information Technology, Visakhapatnam, Andhra Pradesh. Driven by curiosity and a love for innovation, I specialize in transforming ideas into impactful digital experiences.
+              <br className="hidden sm:block" /> From concept to deployment, I build web solutions that blend aesthetic appeal with seamless functionality. I’m passionate about writing clean, scalable code and crafting user-centric applications that deliver real value.
+            </p>
+          </AnimatedSection>
 
-        <AnimatedSection delay={0.4}>
-          <div className="flex flex-wrap justify-center gap-4">
+          <AnimatedSection delay={0.4}>
             <motion.a
-              href="#projects"
-              className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-md hover:shadow-xl transition-all"
+              href="#resume"
+              className="inline-block px-6 py-3 bg-fuchsia-600 hover:bg-fuchsia-700 text-white font-semibold rounded-full shadow-md hover:shadow-xl transition-all"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              aria-label="View my projects"
             >
-              View My Work
+              Check Resume
             </motion.a>
-            <motion.a
-              href="#contact"
-              className="px-6 py-3 border border-blue-400 text-blue-300 font-semibold rounded-lg hover:bg-blue-800/30 transition-all"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              aria-label="Contact me"
-            >
-              Contact Me
-            </motion.a>
-          </div>
-        </AnimatedSection>
+          </AnimatedSection>
+        </div>
       </div>
 
+      {/* Scroll Down */}
       <motion.div
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
         animate={{ y: [0, 10, 0] }}
