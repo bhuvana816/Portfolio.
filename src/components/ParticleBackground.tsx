@@ -23,29 +23,29 @@ export default function ParticleBackground() {
         fpsLimit: 60,
         particles: {
           number: {
-            value: 100,
+            value: 120,
             density: {
               enable: true,
-              area: 800,
+              area: 1000,
             },
           },
           color: {
-            value: '#94a3b8', // slate-400
+            value: ['#a78bfa', '#f472b6', '#38bdf8'], // soft purples, pinks, and blues
           },
           shape: {
             type: 'circle',
           },
           opacity: {
-            value: 0.3,
+            value: 0.4,
             random: true,
           },
           size: {
-            value: 1,
-            random: true,
+            value: { min: 0.5, max: 2 },
           },
           move: {
+            enable: true,
             direction: 'none',
-            speed: 0.15,
+            speed: 0.25,
             outModes: {
               default: 'out',
             },
@@ -54,9 +54,16 @@ export default function ParticleBackground() {
         interactivity: {
           events: {
             onHover: {
-              enable: false,
+              enable: true,
+              mode: 'repulse',
             },
             resize: true,
+          },
+          modes: {
+            repulse: {
+              distance: 50,
+              duration: 0.4,
+            },
           },
         },
         detectRetina: true,
