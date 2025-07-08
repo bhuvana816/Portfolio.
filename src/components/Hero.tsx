@@ -6,6 +6,23 @@ import AnimatedSection from './AnimatedSection';
 import { TypeAnimation } from 'react-type-animation';
 import ParticleBackground from './ParticleBackground';
 
+const containerVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      delayChildren: 0.2,
+      staggerChildren: 0.3
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 }
+};
+
 const Hero: React.FC = () => {
   return (
     <section
@@ -41,51 +58,57 @@ const Hero: React.FC = () => {
         </svg>
       </div>
 
-      <div className="container mx-auto px-4 md:px-8 relative z-10 text-center flex flex-col items-center justify-center gap-10">
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        className="container mx-auto px-4 md:px-8 relative z-10 text-center flex flex-col items-center justify-center gap-10"
+      >
         {/* Content */}
         <div className="max-w-2xl text-left">
-          <AnimatedSection>
-            <motion.h1
-              className="text-4xl md:text-6xl font-extrabold mb-4 leading-tight tracking-tight"
-              whileHover={{ scale: 1.02 }}
-              transition={{ type: 'spring', stiffness: 400 }}
+          <motion.h1
+            className="text-4xl md:text-6xl font-semibold mb-4 leading-tight tracking-tight"
+            variants={itemVariants}
+          >
+            Hi, I'm{' '}
+            <motion.span
+              className="text-transparent bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text inline-block"
+              animate={{ scale: [1, 1.03, 1], rotate: [0, 1, -1, 0] }}
+              transition={{ repeat: Infinity, duration: 6 }}
             >
-              Hi, I'm{' '}
-              <span className="text-transparent bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text">
-                Amajala Bhuvana Sree Sahithi
-              </span>
-            </motion.h1>
-          </AnimatedSection>
+              Amajala Bhuvana Sree Sahithi
+            </motion.span>
+          </motion.h1>
 
-          <AnimatedSection delay={0.2}>
+          <motion.div variants={itemVariants}>
             <TypeAnimation
               sequence={['Frontend Developer', 2000, 'React Enthusiast', 2000, 'UI/UX Explorer', 2000]}
               wrapper="h2"
               speed={50}
               repeat={Infinity}
-              className="text-2xl font-semibold text-purple-300 mb-5"
+              className="text-2xl font-medium text-purple-300 mb-5"
             />
-          </AnimatedSection>
+          </motion.div>
 
-          <AnimatedSection delay={0.3}>
-            <p className="text-gray-300 mb-8 leading-relaxed text-lg">
-              I'm a B.Tech student in Computer Science and Engineering at Vignan's Institute of Information Technology, Visakhapatnam, Andhra Pradesh. Driven by curiosity and a love for innovation, I specialize in transforming ideas into impactful digital experiences.
-              <br className="hidden sm:block" /> From concept to deployment, I build web solutions that blend aesthetic appeal with seamless functionality. I’m passionate about writing clean, scalable code and crafting user-centric applications that deliver real value.
-            </p>
-          </AnimatedSection>
+          <motion.p
+            className="text-gray-300 mb-8 leading-relaxed text-lg"
+            variants={itemVariants}
+          >
+            I'm a B.Tech student in Computer Science and Engineering at Vignan's Institute of Information Technology, Visakhapatnam, Andhra Pradesh. Driven by curiosity and a love for innovation, I specialize in transforming ideas into impactful digital experiences.
+            <br className="hidden sm:block" /> From concept to deployment, I build web solutions that blend aesthetic appeal with seamless functionality. I’m passionate about writing clean, scalable code and crafting user-centric applications that deliver real value.
+          </motion.p>
 
-          <AnimatedSection delay={0.4}>
-            <motion.a
-              href="#resume"
-              className="inline-block px-8 py-3 bg-fuchsia-600 hover:bg-fuchsia-700 text-white font-bold rounded-full shadow-lg hover:shadow-2xl transition-all"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Check Resume
-            </motion.a>
-          </AnimatedSection>
+          <motion.a
+            href="#resume"
+            className="inline-block px-8 py-3 bg-fuchsia-600 hover:bg-fuchsia-700 text-white font-semibold rounded-full shadow-lg hover:shadow-2xl transition-all"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            variants={itemVariants}
+          >
+            Check Resume
+          </motion.a>
         </div>
-      </div>
+      </motion.div>
 
       {/* Scroll Down */}
       <motion.div
