@@ -3,7 +3,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import AnimatedSection from './AnimatedSection';
-import { TypeAnimation } from 'react-type-animation';
+import { TypeAnimation } from 'react-type-animation'; 
 import ParticleBackground from './ParticleBackground';
 
 const Hero: React.FC = () => {
