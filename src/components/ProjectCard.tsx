@@ -16,7 +16,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
-      className="bg-[#1c1c2b] rounded-2xl shadow-lg hover:shadow-2xl transition-all overflow-hidden border border-white/10"
+      className="w-full bg-[#1c1c2b] rounded-2xl shadow-lg hover:shadow-2xl transition-all overflow-hidden border border-white/10"
     >
       {/* Image */}
       <motion.img
@@ -34,7 +34,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           {project.tags.map((tag, index) => (
             <span
               key={index}
-              className="px-3 py-1 text-xs font-medium bg-purple-800/30 text-purple-300 rounded-full"
+              className="min-w-[70px] text-center px-3 py-1 text-xs font-medium bg-purple-800/30 text-purple-300 rounded-full"
             >
               {tag}
             </span>
