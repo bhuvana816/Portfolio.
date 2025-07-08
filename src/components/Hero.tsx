@@ -94,9 +94,7 @@ const Hero: React.FC = () => {
             className="text-gray-300 mb-8 leading-relaxed text-lg"
             variants={itemVariants}
           >
-            I'm a B.Tech student in Computer Science and Engineering at Vignan's Institute of Information Technology, Visakhapatnam, Andhra Pradesh. Driven by curiosity and a love for innovation, I specialize in transforming ideas into impactful digital experiences.
-            <br className="hidden sm:block" /> From concept to deployment, I build web solutions that blend aesthetic appeal with seamless functionality. I’m passionate about writing clean, scalable code and crafting user-centric applications that deliver real value.
-          </motion.p>
+            "Building digital experiences that are as seamless to use as they are visually engaging. My passion lies in transforming intricate ideas into elegant, user-centric web solutions." </motion.p>
 
           <motion.a
             href="#resume"
