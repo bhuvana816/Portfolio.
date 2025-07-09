@@ -1,15 +1,15 @@
 import { Project } from '../types';
 import nykaaImage from './nykaa.png';
-import one from './one.png';
-import two from './two.png';
-import three from './three.png';
+import mentor from './one.png';
+import green from './two.png';
+import ai from './three.png';
 
 const projects: Project[] = [
   {
     id: "1",
     title: "MentorLoop",
     description: "Built MentorLoop, a React-based mentorship platform with AI suggestions, a chatbot for user support, and Razorpay integration for secure payments.",
-    image: one,
+    image: mentor,
     github: "https://github.com/bhuvana816/MentorLoop",
     live: "https://mentor-loop-murex.vercel.app/",
     tags: ["React", "Firebase", "Tailwind CSS","RazorPay","AI CHATBOT"]
@@ -45,7 +45,7 @@ const projects: Project[] = [
     id: "5",
     title: "Green Cycle Hub",
     description: "Developed Green Cycle Hub, a Django-based sustainable e-commerce platform where users exchange plastic waste for supercoins redeemable on eco-friendly products, with integrated payments, cart system, and admin dashboard.",
-    image: two ,
+    image: green ,
     github: "https://github.com/bhuvana816/Green-cycle-hub",
     tags: ["HTML", "Tailwind CSS", "Python","Django"]
   }
@@ -53,7 +53,7 @@ const projects: Project[] = [
     id: "6",
     title: "AI Quiz Builder",
     description: "AI Quiz Builder is a web app that generates personalized multiple-choice quizzes on any topic using AI, allowing users to test their knowledge interactively.",
-    image: three,
+    image: ai,
     github: "https://github.com/bhuvana816/AI-Quiz-builder",
     live: "https://ai-quiz-builder.vercel.app/",
     tags: ["HTML", "Tailwind CSS","TypeScript", "OpenGPT AI"]
