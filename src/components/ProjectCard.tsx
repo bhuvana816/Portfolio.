@@ -5,6 +5,7 @@ import { Project } from '../types/project';
 
 interface ProjectCardProps {
   project: Project;
+  reverse?: boolean;
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
@@ -14,13 +15,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, ease: 'easeOut' }}
-      className="w-full sm:max-w-sm bg-[#1c1c2b] rounded-xl shadow-md border border-white/10 hover:shadow-xl transition-all duration-300"
+      className="w-full max-w-sm mx-auto bg-[#1c1c2b] rounded-xl shadow-md border border-white/10 hover:shadow-xl transition-all duration-300"
     >
       {/* Image */}
       <motion.img
         src={project.image}
         alt={project.title}
-        className="w-full h-40 object-cover rounded-t-xl"
+        className="w-full h-44 object-cover object-top rounded-t-xl"
         whileHover={{ scale: 1.02 }}
         transition={{ duration: 0.3 }}
       />
