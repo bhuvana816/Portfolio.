@@ -1,5 +1,4 @@
-// src/components/Projects.tsx
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import AnimatedSection from './AnimatedSection';
 import ProjectCard from './ProjectCard';
@@ -14,16 +13,7 @@ const headingVariants = {
   },
 };
 
-const tabs = ["All", "WEB APP'S"];
-
 const Projects: React.FC = () => {
-  const [activeTab, setActiveTab] = useState('All');
-
-  const filteredProjects =
-    activeTab === 'All'
-      ? projects
-      : projects.filter((project) => project.category === activeTab);
-
   return (
     <section
       id="projects"
@@ -44,28 +34,11 @@ const Projects: React.FC = () => {
           <p className="text-gray-300 max-w-2xl mx-auto text-sm sm:text-base">
             Here are some of my projects.
           </p>
-
-          {/* Tabs */}
-          <div className="mt-8 flex justify-center gap-4">
-            {tabs.map((tab) => (
-              <button
-                key={tab}
-                onClick={() => setActiveTab(tab)}
-                className={`px-6 py-2 rounded-lg border-2 text-sm font-semibold transition-all ${
-                  activeTab === tab
-                    ? 'bg-purple-600 text-white border-purple-600'
-                    : 'text-purple-400 border-purple-400 hover:bg-purple-600 hover:text-white'
-                }`}
-              >
-                {tab}
-              </button>
-            ))}
-          </div>
         </AnimatedSection>
 
-        {/* Projects */}
+        {/* Projects Grid */}
         <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {filteredProjects.map((project, index) => (
+          {projects.map((project) => (
             <ProjectCard
               key={project.id}
               project={project}
