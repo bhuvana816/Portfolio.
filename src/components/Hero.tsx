@@ -97,13 +97,13 @@ const Hero: React.FC = () => {
             "Building digital experiences that are as seamless to use as they are visually engaging. My passion lies in transforming intricate ideas into elegant, user-centric web solutions." </motion.p>
 
           <motion.a
-            href="#resume"
+            href="#projects"
             className="inline-block px-8 py-3 bg-fuchsia-600 hover:bg-fuchsia-700 text-white font-semibold rounded-full shadow-lg hover:shadow-2xl transition-all"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             variants={itemVariants}
           >
-            Check Resume
+            View my Work
           </motion.a>
         </div>
       </motion.div>
