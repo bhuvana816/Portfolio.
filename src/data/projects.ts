@@ -1,8 +1,8 @@
 import { Project } from '../types';
 import nykaaImage from './nykaa.png';
-import Mentor from './one.png';
-import Mentor from './two.png';
-import Mentor from './three.png';
+import one from './one.png';
+import two from './two.png';
+import three from './three.png';
 
 const projects: Project[] = [
   {
